@@ -1,7 +1,7 @@
 import { Card, CardHeader, Heading, CardBody, Stack, StackDivider, Box } from "@chakra-ui/react";
-import { Experience } from "../Molecules/Experience";
-import { Education } from "../Molecules/Education";
-import { Certifications } from "../Molecules/Certifications";
+import { CvExperience } from "../Organisms/CvExperience";
+import { CvEducation } from "../Organisms/CvEducation";
+import { CvCertifications } from "../Organisms/CvCertifications";
 
 export const CurriculumVitae = () => (
     <Card textAlign="left" mb={3} borderTopLeftRadius={0}>
@@ -12,13 +12,13 @@ export const CurriculumVitae = () => (
         <CardBody>
             <Stack divider={<StackDivider />} spacing='4'>
                 <Box>
-                    <Experience/>
+                    <CvExperience/>
                 </Box>
                 <Box>
-                    <Education/>
+                    <CvEducation/>
                 </Box>
                 <Box>
-                    <Certifications/>
+                    <CvCertifications/>
                 </Box>
             </Stack>
         </CardBody>
