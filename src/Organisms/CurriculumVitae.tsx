@@ -1,7 +1,7 @@
-import { Card, CardHeader, Heading, CardBody, Stack, StackDivider, Box, Text } from "@chakra-ui/react";
-import { Experience } from "./Experience";
-import { Education } from "./Education";
-import { Certifications } from "./Certifications";
+import { Card, CardHeader, Heading, CardBody, Stack, StackDivider, Box } from "@chakra-ui/react";
+import { Experience } from "../Molecules/Experience";
+import { Education } from "../Molecules/Education";
+import { Certifications } from "../Molecules/Certifications";
 
 export const CurriculumVitae = () => (
     <Card textAlign="left" mb={3} borderTopLeftRadius={0}>

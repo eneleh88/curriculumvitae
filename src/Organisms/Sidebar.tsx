@@ -1,6 +1,6 @@
 import { Card, CardHeader, Heading, CardBody, Stack, StackDivider, Box, Text, ListItem, UnorderedList } from "@chakra-ui/react";
-import { Logo } from "./Logo";
-import { SoMe } from "./SoMe";
+import { Logo } from "../Logo";
+import { SoMe } from "../Molecules/SoMe";
 
 export const Sidebar = () => (
     <Card textAlign="left" borderTopLeftRadius={0}>

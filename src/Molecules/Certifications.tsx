@@ -1,4 +1,4 @@
-import { Card, CardHeader, Heading, CardBody, Stack, StackDivider, Box, Text } from "@chakra-ui/react";
+import { Heading, Text } from "@chakra-ui/react";
 
 export const Certifications = () => (
     <>
