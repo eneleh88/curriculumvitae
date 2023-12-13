@@ -13,5 +13,4 @@ export const CvHeader = ({ text, icon }: { text: string; icon: any }) => (
             </Center>
         </Flex>
     </>
-
 )

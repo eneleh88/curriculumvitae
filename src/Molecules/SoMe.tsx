@@ -1,14 +1,17 @@
-import { GridItem, IconButton, SimpleGrid } from "@chakra-ui/react";
-import { LinkedIn, MailOutline, GitHub } from '@mui/icons-material';
+import { GridItem, IconButton, Link, SimpleGrid } from "@chakra-ui/react";
+import { LinkedIn, GitHub } from '@mui/icons-material';
 
 export const SoMe = () => {
-    const icons = [<MailOutline />,<LinkedIn />,<GitHub />];
+    const socials = [
+      {icon: <LinkedIn />, link: "https://www.linkedin.com/in/helenebakken/", label: "LinkedIn"},
+      {icon: <GitHub />, link: "https://github.com/eneleh88", label: "GitHub"},
+    ];
       
     return (
-        <SimpleGrid columns={{ base: 3}} textAlign={"center"} m={3} maxWidth={"50%"} mx={"auto"}>
-            {icons.map((icon, index) => (
+        <SimpleGrid columns={{ base: 2}} textAlign={"center"} m={3} maxWidth={"50%"} mx={"auto"}>
+            {socials.map((social, index) => (
         <GridItem key={index} colSpan={{ base: 1}} m={1}>
-          <IconButton aria-label={"Social Media"} icon={icon} />
+          <Link isExternal href={social.link}><IconButton aria-label={social.label} icon={social.icon}/></Link>
         </GridItem>
       ))}
         </SimpleGrid>
