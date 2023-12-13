@@ -1,7 +1,7 @@
 import { Text } from "@chakra-ui/react";
 import { CvHeader } from "../Atoms/CvHeader";
 import WorkHistoryIcon from "@mui/icons-material/WorkHistory";
-import { Experience } from "../Molecules/Experience";
+import { Experience } from "../Atoms/Experience";
 
 export const CvExperience = () => {
     const experience = [

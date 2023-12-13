@@ -1,6 +1,7 @@
 import { Card, CardHeader, Heading, CardBody, Stack, StackDivider, Box, Text, ListItem, UnorderedList } from "@chakra-ui/react";
 import { Logo } from "../Logo";
 import { SoMe } from "../Molecules/SoMe";
+import { Skills } from "../Molecules/Skills";
 
 export const Sidebar = () => (
     <Card textAlign="left" borderTopLeftRadius={0}>
@@ -11,14 +12,7 @@ export const Sidebar = () => (
         <CardBody>
             <Logo mx={"auto"} mb={10}></Logo>
             <Stack divider={<StackDivider />} spacing='4'>
-                <Box>
-                    <Heading size='xs' textTransform='uppercase'>
-                        WHOAMI
-                    </Heading>
-                    <Text pt='2' fontSize='sm'>
-                        Blah
-                    </Text>
-                </Box>
+                <Skills/>
                 <Box>
                     <SoMe></SoMe>
                 </Box>

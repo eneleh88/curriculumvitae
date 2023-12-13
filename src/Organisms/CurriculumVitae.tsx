@@ -1,14 +1,13 @@
 import { Card, CardHeader, Heading, CardBody, Stack, StackDivider, Box } from "@chakra-ui/react";
-import { CvExperience } from "../Organisms/CvExperience";
-import { CvEducation } from "../Organisms/CvEducation";
-import { CvCertifications } from "../Organisms/CvCertifications";
+import { CvExperience } from "../Molecules/CvExperience";
+import { CvEducation } from "../Molecules/CvEducation";
+import { CvCertifications } from "../Molecules/CvCertifications";
 
 export const CurriculumVitae = () => (
     <Card textAlign="left" mb={3} borderTopLeftRadius={0}>
         <CardHeader>
-            <Heading size='md'>Curriculum Vitae</Heading>
+            <Heading size='xl'>Curriculum Vitae</Heading>
         </CardHeader>
-
         <CardBody>
             <Stack divider={<StackDivider />} spacing='4'>
                 <Box>

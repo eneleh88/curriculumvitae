@@ -8,8 +8,8 @@ import {
   useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react"
-import { Sidebar } from "./Sidebar"
-import { CurriculumVitae } from "./CurriculumVitae"
+import { Sidebar } from "../Organisms/Sidebar"
+import { CurriculumVitae } from "../Organisms/CurriculumVitae"
 
 
 
