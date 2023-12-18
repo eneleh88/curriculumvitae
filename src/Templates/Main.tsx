@@ -42,7 +42,6 @@ export const Main = () => {
         </Tabs>)}
         <CurriculumVitae />
       </GridItem>
-
     </SimpleGrid>
   )
 }

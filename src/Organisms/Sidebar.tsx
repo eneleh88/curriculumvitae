@@ -1,11 +1,12 @@
-import { Card, Heading, CardBody, Stack, StackDivider, Box, Text, ListItem, UnorderedList } from "@chakra-ui/react";
+import { Card, CardBody, Stack, StackDivider, Box} from "@chakra-ui/react";
 import { SoMe } from "../Molecules/SoMe";
 import { Skills } from "../Molecules/Skills";
 import { Profile } from "../Molecules/Profile";
 import { Strengths } from "../Molecules/Strengths";
+import { SidebarFooter } from "../Molecules/SidebarFooter";
 
 export const Sidebar = () => (
-    <Card textAlign="left" borderTopLeftRadius={0}>
+    <Card textAlign="left" borderTopLeftRadius={0} mb={5}>
         <CardBody>
             <Stack divider={<StackDivider />} spacing='4'>
                 <Box>
@@ -21,17 +22,7 @@ export const Sidebar = () => (
                     <SoMe/>
                 </Box>
                 <Box>
-                <Heading size='xs' textTransform='uppercase'>
-                    Stack
-                </Heading>
-                    <Text pt='2' fontSize='sm'>
-                        This app is made using:
-                    
-                    <UnorderedList>
-                        <ListItem>React</ListItem>
-                        <ListItem>Chakra UI</ListItem>
-                    </UnorderedList>
-                    </Text>
+                    <SidebarFooter/>
                 </Box>
             </Stack>
         </CardBody>
