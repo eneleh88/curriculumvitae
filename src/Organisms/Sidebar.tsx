@@ -1,4 +1,4 @@
-import { Card, CardBody, Stack, StackDivider, Box, useColorMode } from "@chakra-ui/react";
+import { Card, CardBody, Stack, StackDivider, Box } from "@chakra-ui/react";
 import { SoMe } from "../Molecules/SoMe";
 import { Skills } from "../Molecules/Skills";
 import { Profile } from "../Molecules/Profile";

@@ -1,4 +1,4 @@
-import { Card, CardHeader, Heading, CardBody, Stack, StackDivider, Box, useColorModeValue, useColorMode } from "@chakra-ui/react";
+import { Card, CardHeader, Heading, CardBody, Stack, StackDivider, Box } from "@chakra-ui/react";
 import { CvExperience } from "../Molecules/CvExperience";
 import { CvEducation } from "../Molecules/CvEducation";
 import { CvCertifications } from "../Molecules/CvCertifications";
