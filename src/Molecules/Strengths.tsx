@@ -9,7 +9,7 @@ export const Strengths = () => {
     const strengths = [
         { icon: <Diversity3Icon />, text: "Team Player" },
         { icon: <InventoryIcon />, text: "Organized" },
-        { icon: <ChangeCircleIcon />, text: "Adaptive" },
+        { icon: <ChangeCircleIcon />, text: "Quick Learner" },
     ];
     return (
         <Box>

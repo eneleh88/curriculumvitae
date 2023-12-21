@@ -7,7 +7,7 @@ export const SkillBadge : React.FC<SkillProps> = ({ skills }) => {
     return (
         <>
         {skills.map((skill, index) => (
-            <Badge key={index} m={1}>{skill}</Badge>
+            <Badge key={index} m={1} variant={"outline"} color={"black"}>{skill}</Badge>
         ))}
         </>
     );

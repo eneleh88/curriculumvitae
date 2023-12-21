@@ -1,4 +1,4 @@
-import { GridItem, IconButton, Link, SimpleGrid } from "@chakra-ui/react";
+import { Box, IconButton, Link } from "@chakra-ui/react";
 import { LinkedIn, GitHub } from '@mui/icons-material';
 
 export const SoMe = () => {
@@ -8,12 +8,10 @@ export const SoMe = () => {
     ];
       
     return (
-        <SimpleGrid columns={{ base: 2}} textAlign={"center"} m={3} maxWidth={"50%"} mx={"auto"}>
+        <Box textAlign={"center"}>
             {socials.map((social, index) => (
-        <GridItem key={index} colSpan={{ base: 1}} m={1}>
-          <Link isExternal href={social.link}><IconButton aria-label={social.label} icon={social.icon}/></Link>
-        </GridItem>
+          <Link isExternal href={social.link}><IconButton aria-label={social.label} icon={social.icon} variant={"subtle"} color={"black"} /></Link>
       ))}
-        </SimpleGrid>
+        </Box>
     );
 }
