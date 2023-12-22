@@ -1,8 +1,8 @@
 import { Center, Heading, Stack, Text } from "@chakra-ui/react";
 import { ProfilePicture } from "../Atoms/ProfilePicture";
-import { LocationTag } from "../Atoms/LocationTag";
 
 export const Profile = () => {
+
     return (
         <Stack paddingTop={5}>
             <Center><ProfilePicture /></Center>
@@ -15,7 +15,6 @@ export const Profile = () => {
             She has also gained experience in security testing through an internship at Capgemini. Since her graduations, Helene has been thriving
             as a front end developer at Capgemini Norway.
             </Text>
-            <LocationTag/>
         </Stack>
     );
 }

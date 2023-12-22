@@ -1,4 +1,3 @@
-import { Text } from "@chakra-ui/react";
 import { CvHeader } from "../Atoms/CvHeader";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import { Certification } from "../Atoms/Certification";
@@ -10,12 +9,9 @@ export const CvCertifications = () => {
     return(
     <>
         <CvHeader text="Certifications" icon={<VerifiedIcon fontSize="large"/>}/>
-        <Text pt="2" fontSize="sm">
         {certifications.map((cert) => (
                     <Certification key={cert.id} certificationName={cert.certificationName} issuedBy={cert.issuedBy} earnedDate={cert.earnedDate} credentialId={cert.credentialId} credentialLink={cert.credentialLink}/>
                 ))}
-            
-        </Text>
     </>
     );
 }

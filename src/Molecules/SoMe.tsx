@@ -10,7 +10,7 @@ export const SoMe = () => {
     return (
         <Box textAlign={"center"}>
             {socials.map((social, index) => (
-          <Link isExternal href={social.link}><IconButton aria-label={social.label} icon={social.icon} variant={"subtle"} color={"black"} /></Link>
+          <Link key={index} isExternal href={social.link}><IconButton key={index} aria-label={social.label} icon={social.icon} variant={"subtle"} color={"black"} /></Link>
       ))}
         </Box>
     );

@@ -1,4 +1,3 @@
-import { Text } from "@chakra-ui/react";
 import { CvHeader } from "../Atoms/CvHeader";
 import SchoolIcon from "@mui/icons-material/School";
 import { Education } from "../Atoms/Education";
@@ -11,11 +10,9 @@ export const CvEducation = () => {
     return(
     <>
         <CvHeader text="Education" icon={<SchoolIcon fontSize="large"/>}/>
-        <Text pt="2" fontSize="sm">
         {education.map((edu) => (
                     <Education key={edu.id} start={edu.start} end={edu.end} institution={edu.institution} degree={edu.degree} />
                 ))}
-        </Text>
     </>
 );
 }

@@ -4,7 +4,7 @@ import PlaceIcon from '@mui/icons-material/Place';
 export const LocationTag = () => {
     return(
         <>
-        <Flex>
+        <Flex mt={2}>
             <Square size={"25px"}>
                 <PlaceIcon/>
             </Square>
