@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ESNext",
     "lib": [
       "dom",
       "dom.iterable",
@@ -13,7 +13,6 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "commonjs",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -21,7 +20,7 @@
     "jsx": "react-jsx",
     "outDir": "./dist",
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "backend/*.ts", "backend/*.tsx", "backend/getProfile.js", "backend/insert.js", "backend/server.js"],
+  "include": ["src/**/*.ts", "src/**/*.tsx","src/server.ts"],
   "exclude": [
     "node_modules"
   ],

@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+type ProfileName {
+  first  String
+  last   String
+  middle String
+}
+
+type ProfileSocials {
+  icon  String
+  label String
+  link  String
+}
+
+model Certifications {
+  id                String @id @default(auto()) @map("_id") @db.ObjectId
+  certificationName String
+  credentialId      String
+  credentialLink    String
+  earnedDate        String
+  issuedBy          String
+  profileId         String @db.ObjectId
+  profile           Profile @relation(fields: [profileId], references: [id])
+}
+
+model Profile {
+  id        String           @id @default(auto()) @map("_id") @db.ObjectId
+  birth     DateTime         @db.Date
+  location  String
+  name      ProfileName
+  skills    String[]
+  socials   ProfileSocials[]
+  strengths String[]
+  certifications Certifications[]
+}
