@@ -3,40 +3,67 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "postgres"
   url      = env("DATABASE_URL")
 }
 
-type ProfileName {
-  first  String
-  last   String
-  middle String
+model certification {
+  id                Int       @id @default(autoincrement())
+  certificationName String?   @db.VarChar
+  issuedBy          String?   @db.VarChar
+  earnedDate        DateTime? @db.Date
+  credentialId      String?   @db.VarChar
+  credentialLink    String?   @db.VarChar
+  profileId         Int
+  profile           profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
 }
 
-type ProfileSocials {
-  icon  String
-  label String
-  link  String
+model profile {
+  id            Int             @id @default(autoincrement())
+  name          String          @db.VarChar
+  birth         DateTime        @db.Date
+  location      String          @db.VarChar
+  skills        String[]        @db.VarChar
+  certification certification[]
+  education     education[]
+  experience    experience[]
+  social        social[]
+  strength      strength[]
 }
 
-model Certifications {
-  id                String @id @default(auto()) @map("_id") @db.ObjectId
-  certificationName String
-  credentialId      String
-  credentialLink    String
-  earnedDate        String
-  issuedBy          String
-  profileId         String @db.ObjectId
-  profile           Profile @relation(fields: [profileId], references: [id])
+model social {
+  id        Int     @id @default(autoincrement())
+  name      String  @db.VarChar
+  icon      String  @db.VarChar
+  link      String  @db.VarChar
+  profileId Int
+  profile   profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
 }
 
-model Profile {
-  id        String           @id @default(auto()) @map("_id") @db.ObjectId
-  birth     DateTime         @db.Date
-  location  String
-  name      ProfileName
-  skills    String[]
-  socials   ProfileSocials[]
-  strengths String[]
-  certifications Certifications[]
+model strength {
+  id        Int     @id @default(autoincrement())
+  name      String  @db.VarChar
+  icon      String  @db.VarChar
+  profileId Int
+  profile   profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+}
+
+model education {
+  id          Int       @id @default(autoincrement())
+  institution String    @db.VarChar
+  startYear   DateTime  @db.Date
+  endYear     DateTime? @db.Date
+  degree      String    @db.VarChar
+  profileId   Int
+  profile     profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
+}
+
+model experience {
+  id        Int       @id @default(autoincrement())
+  workplace String    @db.VarChar
+  startDate DateTime  @db.Date
+  endDate   DateTime? @db.Date
+  role      String    @db.VarChar
+  profileId Int
+  profile   profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
 }
