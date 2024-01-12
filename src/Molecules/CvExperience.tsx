@@ -1,18 +1,19 @@
-import { CvHeader } from "../Atoms/CvHeader";
-import WorkHistoryIcon from "@mui/icons-material/WorkHistory";
-import { Experience } from "../Atoms/Experience";
+import { Badge, Box, Heading, Text } from "@chakra-ui/react";
+import { ChevronRightIcon } from "@chakra-ui/icons";
+import moment from 'moment';
 
-export const CvExperience = () => {
-    const experience = [
-        { id: "1", workplace: "Capgemini Norway", start: "Aug 2023", end: "", role: "Software Engineer" },
-        { id: "2", workplace: "Cloud Master AS", start: "Jan 2022", end: "Jul 2023", role: "System Developer" },
-    ];
+export const CvExperience = (props: { workplace: string, role: string, startDate: Date, endDate: Date | null }) => {
+    const startDate = moment(props.startDate).format('MMMM YYYY');
+    const endDate = moment(props.endDate).format('MMMM YYYY');
     return (
         <>
-            <CvHeader text="Experience" icon={<WorkHistoryIcon fontSize="large" />} />
-                {experience.map((exp) => (
-                    <Experience key={exp.id} start={exp.start} end={exp.end} workplace={exp.workplace} role={exp.role} />
-                ))}
+            <Box paddingStart={5} paddingBottom={5} pt="2">
+                <Heading size="sm">{props.workplace}</Heading>
+                <Heading size="xs">{props.role}</Heading>
+                <Text fontSize={"sm"}>
+                    <ChevronRightIcon w={4} /> {startDate} - {props.endDate ? <>{endDate}</> : <Badge colorScheme={"green"} variant={"outline"} mb={1}>Current</Badge>}
+                </Text>
+            </Box>
         </>
     );
 }

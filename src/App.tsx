@@ -9,7 +9,6 @@ import { extendedTheme } from "./Theme/theme"
 import { RainbowSwitch } from "./Atoms/RainbowSwitch"
 
 export const App = () => {
-  
   return (
     <ChakraProvider theme={extendedTheme}>
       <Box textAlign="center" fontSize="xl">

@@ -8,8 +8,7 @@ export const CvCertifications = () => {
     ];
     return(
     <>
-        <CvHeader text="Certifications" icon={<VerifiedIcon fontSize="large"/>}/>
-        {certifications.map((cert) => (
+            {certifications.map((cert) => (
                     <Certification key={cert.id} certificationName={cert.certificationName} issuedBy={cert.issuedBy} earnedDate={cert.earnedDate} credentialId={cert.credentialId} credentialLink={cert.credentialLink}/>
                 ))}
     </>

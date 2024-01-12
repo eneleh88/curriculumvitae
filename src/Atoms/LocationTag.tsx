@@ -1,7 +1,9 @@
 import { Center, Flex, Square, Text } from '@chakra-ui/react';
 import PlaceIcon from '@mui/icons-material/Place';
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from 'react';
 
-export const LocationTag = () => {
+export const LocationTag=(props: { location: string | undefined; }) =>
+{
     return(
         <>
         <Flex mt={2}>
@@ -9,7 +11,7 @@ export const LocationTag = () => {
                 <PlaceIcon/>
             </Square>
             <Center>
-            <Text fontSize="sm" fontWeight={"bold"}>Horten, Norway</Text>
+            <Text fontSize="sm" fontWeight={"bold"}>{props.location}</Text>
             </Center>
         </Flex>
     </>

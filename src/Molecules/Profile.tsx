@@ -1,43 +1,64 @@
-import { Center, Heading, Stack, Text } from "@chakra-ui/react";
+import { Box, Heading, Stack, StackDivider, Text } from "@chakra-ui/react";
 import { ProfilePicture } from "../Atoms/ProfilePicture";
-// import { useEffect, useState } from "react";
-// import { Profile } from "@prisma/client";
+import { useState, useEffect } from "react";
+import { Profile, Social, Strength } from "@prisma/client"
+import axios from "axios";
+import { LocationTag } from "../Atoms/LocationTag";
+import { Strengths } from "./Strengths";
+import { Skills } from "./Skills";
+import { SoMe } from "./SoMe";
 
+interface TMyProfile extends Profile {
+    Social: Social;
+    Strength: Strength;
+}
 
 export const MyProfile = () => {
-    // const [myProfile, setMyProfile] = useState<Profile | null>(null);
+    const [profile, setProfile] = useState<TMyProfile>();
+    const [loading, setLoading] = useState<boolean>(true);
 
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //       try {
-    //         const response = await fetch('http://localhost:3001/api/data');
-    //         if (!response.ok) {
-    //           throw new Error('Network response was not ok');
-    //         }
-    
-    //         const data = await response.json();
-    //         console.log(data);
-    //       } catch (error) {
-    //         console.error('Error fetching data:', error);
-    //       }
-    //     };
-    
-    //     fetchData();
-    //   }, []);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:3011/profile');
+                setProfile(response.data);
+                setLoading(false);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
+    const strengthArray = profile?.Strength
 
     return (
-        <Stack paddingTop={5}>
-            <Center><ProfilePicture /></Center>
-            <Heading size='md'>Helene Bakken</Heading>
-            <Text fontSize="sm">
-                Helene is a structured and determined developer with a bachelor's degree in IT and Information Systems from the University of South-East Norway.
-                She has solid experience as a team leader in the early childhood education field, hence taking her soft skills into the tech world.
-                Her first experience with coding occured at the beginning of the 2000's, and was the catalyst for her turn in careers in 2020.
-                Alongside her studies, she has held several positions within the field, including roles as a developer and student assistant.
-                She has also gained experience in security testing through an internship at Capgemini. Since her graduations, Helene has been thriving
-                as a front end developer at Capgemini Norway.
-            </Text>
-
-        </Stack>
+        loading ? (
+            <>Loading...</>
+        ) : (
+            <>
+                <Stack divider={<StackDivider />} spacing='4' paddingTop={5}>
+                    <Box>
+                        <Heading size='md'>{profile?.name}</Heading>
+                        <Text fontSize="sm">
+                            {profile?.profileText}
+                        </Text>
+                        <LocationTag location={profile?.location}></LocationTag>
+                    </Box>
+                    <Box>
+                        {strengthArray && (
+                            <Strengths myStrengths={[strengthArray]}></Strengths>
+                        )}
+                    </Box>
+                    <Box>
+                        <Skills></Skills>
+                    </Box>
+                    <Box>
+                        <SoMe></SoMe>
+                    </Box>
+                </Stack>
+            </>
+        )
     );
 }

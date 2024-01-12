@@ -1,10 +1,6 @@
 import { Card, CardBody, Stack, StackDivider, Box } from "@chakra-ui/react";
-import { SoMe } from "../Molecules/SoMe";
-import { Skills } from "../Molecules/Skills";
 import { MyProfile } from "../Molecules/Profile";
-import { Strengths } from "../Molecules/Strengths";
-import { SidebarFooter } from "../Molecules/SidebarFooter"   
-import { LocationTag } from "../Atoms/LocationTag";
+import { SidebarFooter } from "../Molecules/SidebarFooter";
 
 export const Sidebar = () => {
     const bgColor = "#f8f6e8";
@@ -15,16 +11,6 @@ export const Sidebar = () => {
                 <Stack divider={<StackDivider />} spacing='4'>
                     <Box>
                         <MyProfile />
-                        <LocationTag/>
-                    </Box>
-                    <Box>
-                        <Strengths />
-                    </Box>
-                    <Box>
-                        <Skills />
-                    </Box>
-                    <Box>
-                        <SoMe />
                     </Box>
                     <Box>
                         <SidebarFooter />

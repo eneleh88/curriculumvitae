@@ -9,7 +9,6 @@ export const CvEducation = () => {
     ];
     return(
     <>
-        <CvHeader text="Education" icon={<SchoolIcon fontSize="large"/>}/>
         {education.map((edu) => (
                     <Education key={edu.id} start={edu.start} end={edu.end} institution={edu.institution} degree={edu.degree} />
                 ))}

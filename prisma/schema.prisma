@@ -7,63 +7,64 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model certification {
-  id                Int       @id @default(autoincrement())
+model Certification {
+  id                Int       @id(map: "certification_pkey") @default(autoincrement())
   certificationName String?   @db.VarChar
   issuedBy          String?   @db.VarChar
   earnedDate        DateTime? @db.Date
   credentialId      String?   @db.VarChar
   credentialLink    String?   @db.VarChar
   profileId         Int
-  profile           profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  Profile           Profile   @relation(fields: [profileId], references: [id], onDelete: Cascade, map: "certification_profileId_fkey")
 }
 
-model profile {
-  id            Int             @id @default(autoincrement())
-  name          String          @db.VarChar
-  birth         DateTime        @db.Date
-  location      String          @db.VarChar
-  skills        String[]        @db.VarChar
-  certification certification[]
-  education     education[]
-  experience    experience[]
-  social        social[]
-  strength      strength[]
-}
-
-model social {
-  id        Int     @id @default(autoincrement())
-  name      String  @db.VarChar
-  icon      String  @db.VarChar
-  link      String  @db.VarChar
-  profileId Int
-  profile   profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
-}
-
-model strength {
-  id        Int     @id @default(autoincrement())
-  name      String  @db.VarChar
-  icon      String  @db.VarChar
-  profileId Int
-  profile   profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
-}
-
-model education {
-  id          Int       @id @default(autoincrement())
+model Education {
+  id          Int       @id(map: "education_pkey") @default(autoincrement())
   institution String    @db.VarChar
   startYear   DateTime  @db.Date
   endYear     DateTime? @db.Date
   degree      String    @db.VarChar
   profileId   Int
-  profile     profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  Profile     Profile   @relation(fields: [profileId], references: [id], onDelete: Cascade, map: "education_profileId_fkey")
 }
 
-model experience {
-  id        Int       @id @default(autoincrement())
+model Experience {
+  id        Int       @id(map: "experience_pkey") @default(autoincrement())
   workplace String    @db.VarChar
   startDate DateTime  @db.Date
   endDate   DateTime? @db.Date
   role      String    @db.VarChar
   profileId Int
-  profile   profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  Profile   Profile   @relation(fields: [profileId], references: [id], onDelete: Cascade, map: "experience_profileId_fkey")
+}
+
+model Profile {
+  id            Int             @id(map: "profile_pkey") @default(autoincrement())
+  name          String          @db.VarChar
+  birth         DateTime        @db.Date
+  location      String          @db.VarChar
+  skills        String[]        @db.VarChar
+  profileText   String?         @db.VarChar
+  Certification Certification[]
+  Education     Education[]
+  Experience    Experience[]
+  Social        Social[]
+  Strength      Strength[]
+}
+
+model Social {
+  id        Int     @id(map: "social_pkey") @default(autoincrement())
+  name      String  @db.VarChar
+  icon      String  @db.VarChar
+  link      String  @db.VarChar
+  profileId Int
+  Profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade, map: "social_profileId_fkey")
+}
+
+model Strength {
+  id        Int     @id(map: "strength_pkey") @default(autoincrement())
+  name      String  @db.VarChar
+  icon      String  @db.VarChar
+  profileId Int
+  Profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade, map: "strength_profileId_fkey")
 }
