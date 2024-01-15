@@ -8,14 +8,14 @@ datasource db {
 }
 
 model Certification {
-  id                Int       @id(map: "certification_pkey") @default(autoincrement())
-  certificationName String?   @db.VarChar
-  issuedBy          String?   @db.VarChar
-  earnedDate        DateTime? @db.Date
-  credentialId      String?   @db.VarChar
-  credentialLink    String?   @db.VarChar
+  id                Int      @id(map: "certification_pkey") @default(autoincrement())
+  certificationName String   @db.VarChar
+  issuedBy          String   @db.VarChar
+  earnedDate        DateTime @db.Date
+  credentialId      String?  @db.VarChar
+  credentialLink    String?  @db.VarChar
   profileId         Int
-  Profile           Profile   @relation(fields: [profileId], references: [id], onDelete: Cascade, map: "certification_profileId_fkey")
+  Profile           Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade, map: "certification_profileId_fkey")
 }
 
 model Education {

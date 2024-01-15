@@ -1,17 +1,19 @@
-import { CvHeader } from "../Atoms/CvHeader";
-import SchoolIcon from "@mui/icons-material/School";
-import { Education } from "../Atoms/Education";
+import { ChevronRightIcon } from "@chakra-ui/icons";
+import { Heading, Badge, Box, Text} from "@chakra-ui/react";
+import moment from "moment";
 
-export const CvEducation = () => {
-    const education = [
-        { id: "1", institution: "University of South Eastern Norway", start: "2020", end: "2023", degree: "B.Sc Information Technology & Information Systems" },
-        { id: "2", institution: "Western Norway University of Applied Sciences", start: "2008", end: "2011", degree: "B.Sc Early Childhood Eduaction" },
-    ];
-    return(
-    <>
-        {education.map((edu) => (
-                    <Education key={edu.id} start={edu.start} end={edu.end} institution={edu.institution} degree={edu.degree} />
-                ))}
-    </>
-);
+export const CvEducation = (props: {institution: string, degree: string, startYear: Date, endYear: Date | null}) => {
+    const startYear = moment(props.startYear).format('YYYY');
+    const endYear = moment(props.endYear).format('YYYY');
+    return (
+        <>
+            <Box paddingStart={5} paddingBottom={5} pt="2">
+                <Heading size="sm">{props.institution}</Heading>
+                <Heading size="xs">{props.degree}</Heading>
+                <Text fontSize={"sm"}>
+                    <ChevronRightIcon w={4} /> {startYear} - {props.endYear ? <>{endYear}</> : <Badge colorScheme={"green"} variant={"outline"} mb={1}>Current</Badge>}
+                </Text>
+            </Box>
+        </>
+    );
 }

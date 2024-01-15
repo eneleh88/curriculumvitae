@@ -49,24 +49,41 @@ export const CurriculumVitae = () => {
             <CardBody>
                 <Stack divider={<StackDivider />} spacing='4'>
                     <Box>
-                    <CvHeader text="Experience" icon={<WorkHistoryIcon fontSize="large" />} />
-                        {cv?.Experience.map((exp)=> (
-                            <CvExperience 
-                            key={exp.id}
-                            workplace={exp.workplace}
-                            role={exp.role}
-                            startDate={exp.startDate}
-                            endDate={exp.endDate}
+                        <CvHeader text="Experience" icon={<WorkHistoryIcon fontSize="large" />} />
+                        {cv?.Experience.map((exp) => (
+                            <CvExperience
+                                key={exp.id}
+                                workplace={exp.workplace}
+                                role={exp.role}
+                                startDate={exp.startDate}
+                                endDate={exp.endDate}
                             ></CvExperience>
                         ))}
                     </Box>
                     <Box>
-                    <CvHeader text="Education" icon={<SchoolIcon fontSize="large" />} />
-                        <CvEducation />
+                        <CvHeader text="Education" icon={<SchoolIcon fontSize="large" />} />
+                        {cv?.Education.map((edu) => (
+                            <CvEducation
+                                key={edu.id}
+                                institution={edu.institution}
+                                degree={edu.degree}
+                                startYear={edu.startYear}
+                                endYear={edu.endYear}
+                            ></CvEducation>
+                        ))}
                     </Box>
                     <Box>
-                    <CvHeader text="Certifications" icon={<VerifiedIcon fontSize="large" />} />
-                        <CvCertifications />
+                        <CvHeader text="Certifications" icon={<VerifiedIcon fontSize="large" />} />
+                        {cv?.Certification.map((cert) => (
+                            <CvCertifications
+                                key={cert.id}
+                                certificationName={cert.certificationName}
+                                issuedBy={cert.issuedBy}
+                                earnedDate={cert.earnedDate}
+                                credentialId={cert.credentialId}
+                                credentialLink={cert.credentialLink}
+                            ></CvCertifications>
+                        ))}
                     </Box>
                 </Stack>
             </CardBody>

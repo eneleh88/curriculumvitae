@@ -46,16 +46,33 @@ app.get("/profile", async (req, res) => {
 app.get("/cv", async (req, res) => {
   try {
     const cvData = await prisma.profile.findUnique({
-       where: {
-         id: 1
-       },
-       select: {
-         Education: true,
-         Experience: true,
-         Certification: true,
-       }
+      where: {
+        id: 1
+      },
+      include: {
+        Education: {
+          orderBy: {
+            endYear: "desc"
+          }
+        },
+        Experience: {
+          orderBy: {
+            endDate: "desc"
+          }
+        },
+        Certification: {
+          orderBy: {
+            earnedDate: "desc"
+          }
+        }
+      }
     });
-    res.json(cvData)
+
+    res.json({
+      Education: cvData.Education,
+      Experience: cvData.Experience,
+      Certification: cvData.Certification
+    });
   } catch (error) {
     console.error('Error fetching profile data:', error);
     res.status(500).json({
