@@ -1,6 +1,5 @@
 import { Center, Flex, Square, Text } from '@chakra-ui/react';
 import PlaceIcon from '@mui/icons-material/Place';
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from 'react';
 
 export const LocationTag=(props: { location: string | undefined; }) =>
 {

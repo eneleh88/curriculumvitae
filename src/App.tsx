@@ -7,9 +7,11 @@ import {
 import { Main } from "./Templates/Main"
 import { extendedTheme } from "./Theme/theme"
 import { RainbowSwitch } from "./Atoms/RainbowSwitch"
+import { ProfileContextProvider } from "./hooks/ProfileContext"
 
 export const App = () => {
   return (
+    <ProfileContextProvider>
     <ChakraProvider theme={extendedTheme}>
       <Box textAlign="center" fontSize="xl">
         <Grid p={3}>
@@ -18,5 +20,6 @@ export const App = () => {
         <Main />
       </Box>
     </ChakraProvider>
+    </ProfileContextProvider>
   );
 }

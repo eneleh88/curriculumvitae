@@ -1,4 +1,4 @@
-import { ChevronRightIcon } from "@chakra-ui/icons";
+import { CalendarIcon } from "@chakra-ui/icons";
 import { Heading, Badge, Box, Text} from "@chakra-ui/react";
 import moment from "moment";
 
@@ -11,7 +11,7 @@ export const CvEducation = (props: {institution: string, degree: string, startYe
                 <Heading size="sm">{props.institution}</Heading>
                 <Heading size="xs">{props.degree}</Heading>
                 <Text fontSize={"sm"}>
-                    <ChevronRightIcon w={4} /> {startYear} - {props.endYear ? <>{endYear}</> : <Badge colorScheme={"green"} variant={"outline"} mb={1}>Current</Badge>}
+                    {startYear} - {props.endYear ? <>{endYear}</> : <Badge colorScheme={"green"} variant={"outline"} mb={1}>Current</Badge>}
                 </Text>
             </Box>
         </>

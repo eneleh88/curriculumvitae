@@ -42,6 +42,9 @@ export const CurriculumVitae = () => {
 
 
     return (
+        loading ? (
+            <>Loading...</>
+        ) : (
         <Card variant={"filled"} textAlign="left" mb={3} borderTopLeftRadius={0} backgroundColor={bgColor}>
             <CardHeader>
                 <Heading size='xl'>Curriculum Vitae</Heading>
@@ -87,6 +90,6 @@ export const CurriculumVitae = () => {
                     </Box>
                 </Stack>
             </CardBody>
-        </Card>
+        </Card>)
     );
 }

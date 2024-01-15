@@ -1,7 +1,7 @@
 import { Badge, Box, Heading, Text } from "@chakra-ui/react";
-import { ChevronRightIcon } from "@chakra-ui/icons";
+import { ArrowRightIcon } from "@chakra-ui/icons";
 import moment from 'moment';
-
+import EventAvailableOutlinedIcon from '@mui/icons-material/EventAvailableOutlined';
 export const CvExperience = (props: { workplace: string, role: string, startDate: Date, endDate: Date | null }) => {
     const startDate = moment(props.startDate).format('MMMM YYYY');
     const endDate = moment(props.endDate).format('MMMM YYYY');
@@ -11,7 +11,7 @@ export const CvExperience = (props: { workplace: string, role: string, startDate
                 <Heading size="sm">{props.workplace}</Heading>
                 <Heading size="xs">{props.role}</Heading>
                 <Text fontSize={"sm"}>
-                    <ChevronRightIcon w={4} /> {startDate} - {props.endDate ? <>{endDate}</> : <Badge colorScheme={"green"} variant={"outline"} mb={1}>Current</Badge>}
+                    {startDate} - {props.endDate ? <>{endDate}</> : <Badge colorScheme={"green"} variant={"outline"} mb={1}>Current</Badge>}
                 </Text>
             </Box>
         </>
