@@ -1,14 +1,15 @@
-import { Heading, Box } from "@chakra-ui/react";
-import { SkillBadge } from "../Atoms/SkillBadge";
+import { Heading, Box, Badge } from "@chakra-ui/react";
 
-export const Skills = () => {
-    const skills = ["React", "Chakra UI", "Next.js", "Azure Storage", "Azure App Service", "PostgresSQL", "NextAuth", "Nginx", "Leadership", "Atomic Design", "MySQL", "BurpSuite", "Azure AD", "Material Design UI", "PHP", "Yii", "Scrum", "Vagrant", "Material Design Bootstrap", "Cronjobs", "Git", "Trello", "Vue3", "Jira", "Postman", "HTML", "CSS", "Agile", "JSON", "Rest API", "Mendix"];
+export const Skills = (props: { mySkills: Array<string> | undefined }) => {
+    const skills = props.mySkills;
     return (
         <Box>
             <Heading size='xs' textTransform='uppercase'>
                 Skills
             </Heading>
-            <SkillBadge skills={skills.sort()}/>
+                {skills?.map((skill, index) => (
+                    <Badge key={index} m={1} variant={"outline"} color={"black"}>{skill}</Badge>
+                ))}
         </Box>
     );
 }

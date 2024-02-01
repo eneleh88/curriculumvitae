@@ -11,7 +11,7 @@ import { ProfileContextProvider } from "./hooks/ProfileContext"
 
 export const App = () => {
   return (
-    <ProfileContextProvider>
+    //<ProfileContextProvider>
     <ChakraProvider theme={extendedTheme}>
       <Box textAlign="center" fontSize="xl">
         <Grid p={3}>
@@ -20,6 +20,6 @@ export const App = () => {
         <Main />
       </Box>
     </ChakraProvider>
-    </ProfileContextProvider>
+    //</ProfileContextProvider>
   );
 }

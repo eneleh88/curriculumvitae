@@ -11,8 +11,6 @@ import VerifiedIcon from "@mui/icons-material/Verified";
 import SchoolIcon from "@mui/icons-material/School";
 
 
-
-
 type MyCv = {
     Experience: Experience[]
     Education: Education[]
