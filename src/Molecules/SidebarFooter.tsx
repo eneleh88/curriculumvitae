@@ -9,6 +9,7 @@ export const SidebarFooter = () => {
             </Heading>
                 <UnorderedList fontSize={"sm"} pt={1}>
                     <ListItem>React</ListItem>
+                    <ListItem>Node</ListItem>
                     <ListItem>Chakra UI</ListItem>
                     <ListItem>MUI Icons</ListItem>
                     <ListItem>Postgres</ListItem>

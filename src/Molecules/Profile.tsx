@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { Profile, Social, Strength } from "@prisma/client"
 import axios from "axios";
 import { LocationTag } from "../Atoms/LocationTag";
-import { Strengths } from "./Strengths";
 import { Skills } from "./Skills";
 import { SoMe } from "./SoMe";
 import { useProfile } from "../hooks/ProfileContext";
+import { StrengthComponent } from "../Atoms/StrengthComponent";
 
 interface MyProfileT extends Profile{
     Strength: Strength[]
@@ -42,11 +42,22 @@ export const MyProfile = () => {
                         {profile?.name}
                     </Heading>
                     <Text fontSize="sm">
-                       <LocationTag location={profile?.location}></LocationTag>
+                       {profile?.profileText}
                     </Text>
+                    <LocationTag location={profile?.location}></LocationTag>
                 </Box>
                 <Box>
-                    {/* <Strengths myStrengths={[]}></Strengths> */}
+                    <Heading size="xs" textTransform="uppercase">
+                        Strengths
+                    </Heading>
+                    {profile?.Strength.map((strength) => (
+                        <StrengthComponent
+                            key={strength.id}
+                            name={strength.name}
+                            icon={strength.icon}
+                            profileId={strength.profileId}
+                        />
+                    ))}
                 </Box>
                 <Box>
                     <Skills mySkills={profile?.skills}></Skills>

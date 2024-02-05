@@ -39,7 +39,7 @@ export const RainbowSwitch = () => {
 
   return (
     <Tooltip label="Do not flip the switch!" placement="left-end" hasArrow>
-        <Switch aria-label="Do not touch!" justifySelf="flex-end" colorScheme={"gray"} onChange={toggleRainbow} size={"lg"}/>
+        <Switch aria-label="Do not touch!" justifySelf="flex-end" colorScheme={"gray"} onChange={toggleRainbow} size={"lg"} data-cy="rainbow-switch"/>
     </Tooltip>
   );
 };

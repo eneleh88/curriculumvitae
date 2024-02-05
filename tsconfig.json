@@ -19,6 +19,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "outDir": "./dist",
+    "module": "esnext"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx","src/server.ts"],
   "exclude": [
