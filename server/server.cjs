@@ -8,12 +8,10 @@ const cors = require("cors");
 const PORT = process.env.PORT || 3011;
 const app = express();
 
-// Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, "../client/build")));
-// CORS
 app.use(cors())
 
-// Handle GET requests to /test API route
+// test API route
 app.get("/test", (req, res) => {
   res.json({ message: "Hello from server!" });
 });
@@ -28,29 +26,7 @@ app.get("/profile", async (req, res) => {
        include: {
          Social: true,
          Strength: true,
-       }
-    });
-
-    res.json(profile)
-  } catch (error) {
-    console.error('Error fetching profile data:', error);
-    res.status(500).json({
-      message: "Something went wrong",
-    })
-  } finally {
-    await prisma.$disconnect();
-  }
-});
-
-// GET cv
-app.get("/cv", async (req, res) => {
-  try {
-    const cvData = await prisma.profile.findUnique({
-      where: {
-        id: 1
-      },
-      include: {
-        Education: {
+         Education: {
           orderBy: {
             endYear: "desc"
           }
@@ -65,14 +41,10 @@ app.get("/cv", async (req, res) => {
             earnedDate: "desc"
           }
         }
-      }
+       }
     });
 
-    res.json({
-      Education: cvData.Education,
-      Experience: cvData.Experience,
-      Certification: cvData.Certification
-    });
+    res.json(profile)
   } catch (error) {
     console.error('Error fetching profile data:', error);
     res.status(500).json({
@@ -83,7 +55,7 @@ app.get("/cv", async (req, res) => {
   }
 });
 
-// All other GET requests not handled before will return our React app
+// All other GET requests not handled before
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
 });

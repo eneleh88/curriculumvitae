@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-describe('template spec', () => {
+describe('Rainbow effect', () => {
   it('should change the background with toggle switch', () => {
     cy.visit('/')
     cy.get('[data-cy="rainbow-switch"]').should('be.not.disabled');

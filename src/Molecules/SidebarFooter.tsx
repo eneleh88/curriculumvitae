@@ -7,7 +7,7 @@ export const SidebarFooter = () => {
             <Heading size='xs' textTransform='uppercase'>
                 Made with:
             </Heading>
-                <UnorderedList fontSize={"sm"} pt={1}>
+                <UnorderedList fontSize={"sm"} pt={1} data-cy="sidebar-list-stack">
                     <ListItem>React</ListItem>
                     <ListItem>Node</ListItem>
                     <ListItem>Chakra UI</ListItem>
