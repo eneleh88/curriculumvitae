@@ -27,7 +27,7 @@ export const StrengthComponent = () => {
     return (
         <>
         {data?.Strength.map((strength) => (
-            <Flex key={strength.id}>
+            <Flex key={strength.id} data-cy="profile-strengths">
                 <Square size={"50px"}>
                     {iconComponent(strength.icon)}
                 </Square>

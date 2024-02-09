@@ -27,10 +27,10 @@ export const MyProfile = () => {
         <>
             <Stack divider={<StackDivider />} spacing='4' paddingTop={5}>
                 <Box>
-                    <Heading size='md'>
+                    <Heading size='md' data-cy="profile-name">
                         {data?.name}
                     </Heading>
-                    <Text fontSize="sm">
+                    <Text fontSize="sm" data-cy="profile-text">
                        {data?.profileText}
                     </Text>
                     <LocationTag/>
@@ -46,7 +46,7 @@ export const MyProfile = () => {
                 </Box>
                 <Box textAlign={"center"}>
                 {data?.Social.map((social) => (
-                        <Link key={social.id} isExternal href={social.link}>
+                        <Link key={social.id} isExternal href={social.link} data-cy="profile-some">
                             <IconButton aria-label={social.name} icon={getIcon(social.icon)} variant={"subtle"} color={"black"}/>
                         </Link>
                     ))}

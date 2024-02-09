@@ -9,7 +9,7 @@ export const Skills = () => {
                 Skills
             </Heading>
                 {data?.skills.map((skill, index) => (
-                    <Badge key={index} m={1} variant={"outline"} color={"black"}>{skill}</Badge>
+                    <Badge key={index} m={1} variant={"outline"} color={"black"} data-cy="profile-skills">{skill}</Badge>
                 ))}
         </Box>
     );

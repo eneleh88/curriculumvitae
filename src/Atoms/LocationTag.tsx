@@ -7,7 +7,7 @@ export const LocationTag = () => {
     
     return(
         <>
-        <Flex mt={2}>
+        <Flex mt={2} data-cy="profile-location">
             <Square size={"25px"}>
                 <PlaceIcon/>
             </Square>
