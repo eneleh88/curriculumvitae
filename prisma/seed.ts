@@ -40,7 +40,6 @@ async function seed() {
         role: 'Software Engineer',
         profileId: 1,
       },
-      // Add more Experience entries as needed
     ],
   });
 
@@ -52,20 +51,26 @@ async function seed() {
         birth: new Date('1990-01-01'),
         location: 'Sample City',
         skills: ['JavaScript', 'React', 'Node.js', 'Azure', 'CSS', 'HTML', 'JSON', 'Git', 'SQL'],
-        profileText: 'A passionate software engineer with experience in web development.',
+        profileText: 'A passionate software engineer with experience in web development. If you want to see my real CV, please visit my LinkedIn profile.',
       },
     ],
   });
 
-  // Sample data for Social
+  // Real data for Social
   await prisma.social.createMany({
     data: [
       {
         name: 'GitHub',
-        icon: '<GitHub />',
-        link: 'https://github.com/',
+        icon: 'GitHub',
+        link: 'https://github.com/eneleh88',
         profileId: 1,
       },
+      {
+        name: 'LinkedIn',
+        icon: 'LinkedIn',
+        link: 'https://www.linkedin.com/in/helenebakken/',
+        profileId: 1,
+      }
     ],
   });
 
@@ -74,7 +79,7 @@ async function seed() {
     data: [
       {
         name: 'Teamwork',
-        icon: '<Diversity3Icon />',
+        icon: 'Diversity3Icon',
         profileId: 1,
       },
     ],
