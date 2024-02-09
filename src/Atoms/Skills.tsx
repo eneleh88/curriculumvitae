@@ -1,13 +1,14 @@
 import { Heading, Box, Badge } from "@chakra-ui/react";
+import { useDataContext } from "../App";
 
-export const Skills = (props: { mySkills: Array<string> | undefined }) => {
-    const skills = props.mySkills;
+export const Skills = () => {
+    const { data } = useDataContext();
     return (
         <Box>
             <Heading size='xs' textTransform='uppercase'>
                 Skills
             </Heading>
-                {skills?.map((skill, index) => (
+                {data?.skills.map((skill, index) => (
                     <Badge key={index} m={1} variant={"outline"} color={"black"}>{skill}</Badge>
                 ))}
         </Box>

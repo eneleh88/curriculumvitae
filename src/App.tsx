@@ -9,7 +9,6 @@ import { extendedTheme } from "./Theme/theme"
 import { RainbowSwitch } from "./Atoms/RainbowSwitch"
 import { createContext, useContext, useEffect, useState } from 'react';
 import axios from "axios"
-
 interface ProfileData extends Profile {
     Strength: Strength[]
     Social: Social[]
@@ -23,7 +22,6 @@ const DataContext = createContext<{ data: ProfileData | null }>({
 });
 
 export const useDataContext = () => useContext(DataContext);
-
 
 export const App = () => {
   const [data, setData] = useState<ProfileData | null>(null);
@@ -44,8 +42,6 @@ export const App = () => {
 
     fetchData();
   }, []);
-
-  console.log(data)
 
   if (loading) {
     return <div>Loading...</div>;

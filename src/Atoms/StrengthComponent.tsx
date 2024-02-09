@@ -2,12 +2,14 @@ import { Center, Flex, Text, Square } from "@chakra-ui/react";
 import ChangeCirleIcon from '@mui/icons-material/ChangeCircle';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
+import { useDataContext } from "../App";
 
-export const StrengthComponent = (props: { name: string, icon: string }) => {
+export const StrengthComponent = () => {
+    
+    const { data } = useDataContext();
 
-
-    const iconComponent = () => {
-        switch (props.icon) {
+    const iconComponent = (icon: string) => {
+        switch (icon) {
             case "ChangeCircleIcon":
                 return <ChangeCirleIcon />
             case "InventoryIcon": 
@@ -18,16 +20,22 @@ export const StrengthComponent = (props: { name: string, icon: string }) => {
         }
     }
 
+    if (!data) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <>
-            <Flex>
+        {data?.Strength.map((strength) => (
+            <Flex key={strength.id}>
                 <Square size={"50px"}>
-                    {iconComponent()}
+                    {iconComponent(strength.icon)}
                 </Square>
                 <Center>
-                    <Text fontSize="lg">{props.name}</Text>
+                    <Text fontSize="lg">{strength.name}</Text>
                 </Center>
             </Flex>
+        ))}
         </>
     );
 }

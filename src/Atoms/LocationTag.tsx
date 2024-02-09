@@ -1,8 +1,10 @@
 import { Center, Flex, Square, Text } from '@chakra-ui/react';
 import PlaceIcon from '@mui/icons-material/Place';
+import { useDataContext } from '../App';
 
-export const LocationTag=(props: { location: string | undefined; }) =>
-{
+export const LocationTag = () => {
+    const { data } = useDataContext();
+    
     return(
         <>
         <Flex mt={2}>
@@ -10,7 +12,7 @@ export const LocationTag=(props: { location: string | undefined; }) =>
                 <PlaceIcon/>
             </Square>
             <Center>
-            <Text fontSize="sm" fontWeight={"bold"}>{props.location}</Text>
+            <Text fontSize="sm" fontWeight={"bold"}>{data?.location}</Text>
             </Center>
         </Flex>
     </>

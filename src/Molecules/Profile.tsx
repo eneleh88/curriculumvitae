@@ -1,7 +1,7 @@
 import { Box, Heading, IconButton, Link, Stack, StackDivider, Text } from "@chakra-ui/react";
 import { ProfilePicture } from "../Atoms/ProfilePicture";
 import { LocationTag } from "../Atoms/LocationTag";
-import { Skills } from "./Skills";
+import { Skills } from "../Atoms/Skills";
 import  { StrengthComponent }  from "../Atoms/StrengthComponent";
 import { GitHub, LinkedIn } from "@mui/icons-material";
 import { useDataContext } from "../App";
@@ -11,9 +11,9 @@ export const MyProfile = () => {
 
     const getIcon = (icon: string) => {
         switch (icon) {
-            case "<GitHub />":
+            case "GitHub":
                 return <GitHub />
-            case "<LinkedIn />": 
+            case "LinkedIn": 
                 return <LinkedIn />
             default: <></>
         }
@@ -33,22 +33,16 @@ export const MyProfile = () => {
                     <Text fontSize="sm">
                        {data?.profileText}
                     </Text>
-                    <LocationTag location={data?.location}></LocationTag>
+                    <LocationTag/>
                 </Box>
                 <Box>
                     <Heading size="xs" textTransform="uppercase">
                         Strengths
                     </Heading>
-                    {data?.Strength.map((strength) => (
-                        <StrengthComponent
-                            key={strength.id}
-                            name={strength.name}
-                            icon={strength.icon}
-                        />
-                    ))}
+                    <StrengthComponent/>
                 </Box>
                 <Box>
-                    <Skills mySkills={data?.skills}></Skills>
+                    <Skills/>
                 </Box>
                 <Box textAlign={"center"}>
                 {data?.Social.map((social) => (
